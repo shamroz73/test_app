@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "com.example.test_app"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    // ndkVersion = "27.0.12077973"  // Commented out to fix build issues
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -24,7 +24,7 @@ android {
         applicationId = "com.example.test_app"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        minSdk = 31  // Required for V510 KTPsdk.aar
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
@@ -41,4 +41,14 @@ android {
 
 flutter {
     source = "../.."
+}
+
+repositories {
+    flatDir {
+        dirs("libs")
+    }
+}
+
+dependencies {
+    implementation(group = "", name = "KTPsdk", ext = "aar")
 }

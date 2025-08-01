@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Deploy App to Device",
+      "type": "shell",
+      "command": "adb install -r build/app/outputs/flutter-apk/app-debug.apk",
+      "group": "build",
+      "isBackground": false,
+      "problemMatcher": []
+    }
+  ]
+}
